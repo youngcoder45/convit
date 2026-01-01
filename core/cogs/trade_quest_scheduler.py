@@ -58,7 +58,7 @@ class TradeQuestScheduler(commands.Cog):
 
             await conn.execute("""
                 INSERT INTO trade_quests (trust_level, item_id, item_amount, payout, expires_at)
-                VALUES ($1, $2, $3, $4, NOW() + INTERVAL '${5} days')
+                VALUES ($1, $2, $3, $4, NOW() + INTERVAL '1 day' * $5)
             """, trust_level, item['id'], amount, payout, timeout_days)
 
             return True
